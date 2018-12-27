@@ -18,13 +18,12 @@ var billsInATM = [
 
 var divResult = document.getElementById("result");
 var sendButton = document.getElementById("send");
-
 sendButton.addEventListener("click",clickSendButton);
 
 console.log(billsInATM);
 
 function clickSendButton(){
-	console.log(sendButton);
+	console.log(document.getElementById("money").value);
 	var moneyToNeed = document.getElementById("money").value;
 	var billsToWithdraw = withdraw(moneyToNeed);
 	drawImage(billsToWithdraw);
