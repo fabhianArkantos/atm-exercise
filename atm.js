@@ -26,8 +26,6 @@ var divResult = document.getElementById("result");
 var sendButton = document.getElementById("send");
 sendButton.addEventListener("click",clickSendButton);
 
-console.log(billsInATM);
-
 function clickSendButton(){
 	var moneyToNeed = document.getElementById("money").value;
 	var billsToWithdraw;
