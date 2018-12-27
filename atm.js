@@ -16,6 +16,12 @@ var billsInATM = [
 	tenDollars = new Bill(10, 2, "images/bill_10.png")
 ];
 
+var moneyInATM = 0;
+
+for (const b of billsInATM) {
+	moneyInATM += b.value * b.quantity;
+}
+
 var divResult = document.getElementById("result");
 var sendButton = document.getElementById("send");
 sendButton.addEventListener("click",clickSendButton);
@@ -23,10 +29,15 @@ sendButton.addEventListener("click",clickSendButton);
 console.log(billsInATM);
 
 function clickSendButton(){
-	console.log(document.getElementById("money").value);
 	var moneyToNeed = document.getElementById("money").value;
-	var billsToWithdraw = withdraw(moneyToNeed);
-	drawImage(billsToWithdraw);
+	var billsToWithdraw;
+	if (moneyToNeed > moneyInATM) {
+		divResult.prepend("No hay suficiente dinero");
+	}else{
+		billsToWithdraw = withdraw(moneyToNeed);
+		drawImage(billsToWithdraw);
+	}
+	
 }
 
 function withdraw(moneyToNeed) {
